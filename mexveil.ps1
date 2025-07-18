@@ -38,7 +38,7 @@
     Creates a shared mailbox that both forwards and stores messages in the shared mailbox.
 
 .EXAMPLE
-    curl https://raw.githubusercontent.com/quedalytix/mexveil/main/mexveil.ps1 | pwsh
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/quedalytix/mexveil/main/mexveil.ps1" -UseBasicParsing | Invoke-Expression
     Direct execution mode - runs interactively, prompting for service name and auto-detecting email.
 
 .NOTES

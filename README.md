@@ -40,9 +40,9 @@ mexveil creates **isolated shared mailboxes** that act as privacy shields for yo
 
 Open https://admin.cloud.microsoft/exchange#/mailboxes, click on cloud shell (top right button, next to a bell) and run:
 
-```bash
+```powershell
 # Download mexveil to current directory
-curl https://raw.githubusercontent.com/quedalytix/mexveil/main/install.ps1 | pwsh
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/quedalytix/mexveil/main/install.ps1" -UseBasicParsing | Invoke-Expression
 
 # Then run with your service name
 .\mexveil.ps1 -ServiceName "support"

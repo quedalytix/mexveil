@@ -7,7 +7,7 @@
     Simple installer that just fetches the files for local use.
 
 .EXAMPLE
-    curl https://raw.githubusercontent.com/quedalytix/mexveil/main/install.ps1 | pwsh
+    Invoke-WebRequest -Uri "https://raw.githubusercontent.com/quedalytix/mexveil/main/install.ps1" -UseBasicParsing | Invoke-Expression
     Downloads mexveil files to current directory
 
 .NOTES
