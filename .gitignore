@@ -1,0 +1,90 @@
+# PowerShell specific
+*.ps1xml
+*.psd1
+*.psm1.backup
+*.orig
+
+# IDE and Editor files
+.vscode/
+.vs/
+*.swp
+*.swo
+*~
+
+# Windows specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS specific
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Linux specific
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+logs/
+temp/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Configuration files with sensitive data
+config.json
+settings.json
+*.config
+!example.config
+
+# PowerShell Gallery and module artifacts
+obj/
+bin/
+*.nupkg
+*.nuspec
+
+# Test results
+TestResults/
+coverage/
+*.trx
+*.coverage
+
+# Build artifacts
+build/
+dist/
+output/
+
+# Package managers
+packages/
+node_modules/
+
+# Environments
+.env*
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+envs/ 
+env/
