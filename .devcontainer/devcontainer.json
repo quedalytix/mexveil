@@ -15,6 +15,11 @@
 
 	"postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\" && pwsh -c 'Install-Module -Name Pester -Force -Scope AllUsers'",
 
+	// Mount SSH config and enable SSH agent forwarding
+	"mounts": [
+		"source=${localEnv:HOME}/.ssh/config,target=/home/vscode/.ssh/config,type=bind,consistency=cached,readonly"
+	],
+	
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
