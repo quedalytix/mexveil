@@ -134,7 +134,6 @@ try {
     }
 }
 
-# Exit with the same code as the main script
 if ($ExitCode) {
     exit $ExitCode
 }
