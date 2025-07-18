@@ -13,12 +13,8 @@
 		}
 	},
 
-	"postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\" && pwsh -c 'Install-Module -Name Pester -Force -Scope AllUsers'",
+	"postCreateCommand": "sudo chsh vscode -s \"$(which pwsh)\" && pwsh -c 'Install-Module -Name Pester -Force -Scope CurrentUser'",
 
-	// Mount SSH config and enable SSH agent forwarding
-	"mounts": [
-		"source=${localEnv:HOME}/.ssh/config,target=/home/vscode/.ssh/config,type=bind,consistency=cached,readonly"
-	],
 	
 	// Configure tool-specific properties.
 	"customizations": {
@@ -35,11 +31,10 @@
 				"pspester.pester-test"
 			]
 		}
-	}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"remoteUser": "vscode"
 }
