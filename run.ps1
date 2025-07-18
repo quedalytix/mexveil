@@ -28,11 +28,11 @@
     Keep downloaded files after execution. Default is $false (cleanup).
 
 .EXAMPLE
-    curl https://raw.githubusercontent.com/quedalytix/mexveil/run.ps1 | powershell
+    curl https://raw.githubusercontent.com/quedalytix/mexveil/run.ps1 | pwsh
     Downloads and runs mexveil interactively
 
 .EXAMPLE
-    curl https://raw.githubusercontent.com/quedalytix/mexveil/run.ps1 | powershell -Command "& {$input} -ServiceName 'support'"
+    curl https://raw.githubusercontent.com/quedalytix/mexveil/run.ps1 | pwsh -Command "& {$input} -ServiceName 'support'"
     Downloads and runs mexveil with specified service name
 
 .NOTES

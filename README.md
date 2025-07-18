@@ -42,7 +42,7 @@ Open https://admin.cloud.microsoft/exchange#/mailboxes, click on cloud shell (to
 
 ```bash
 # Interactive mode - will prompt for service name and auto-detect your email
-curl https://raw.githubusercontent.com/quedalytix/mexveil/run.ps1 | powershell
+curl https://raw.githubusercontent.com/quedalytix/mexveil/run.ps1 | pwsh
 ```
 
 ### Traditional Usage
