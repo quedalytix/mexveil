@@ -108,10 +108,30 @@ try {
     $OriginalLocation = Get-Location
     Set-Location $TempDir
     
-    # Execute the main script
+    # Execute the main script in a separate process to avoid pipeline input issues
     Write-Host "Executing mexveil..." -ForegroundColor Green
-    & $MainScriptPath @ScriptArgs
-    $ExitCode = $LASTEXITCODE
+    
+    # Build argument string for the new PowerShell process
+    $ArgString = ""
+    foreach ($key in $ScriptArgs.Keys) {
+        $value = $ScriptArgs[$key]
+        if ($value -is [bool]) {
+            if ($value) {
+                $ArgString += " -$key `$$value"
+            }
+        } elseif ($value -is [switch] -or $key -eq "Help") {
+            if ($value) {
+                $ArgString += " -$key"
+            }
+        } else {
+            $ArgString += " -$key '$value'"
+        }
+    }
+    
+    # Execute in a new PowerShell process to isolate from pipeline input
+    $ProcessArgs = "-NoProfile -ExecutionPolicy Bypass -File `"$MainScriptPath`"$ArgString"
+    $Process = Start-Process -FilePath "pwsh" -ArgumentList $ProcessArgs -Wait -PassThru -NoNewWindow
+    $ExitCode = $Process.ExitCode
     
     # Return to original location
     Set-Location $OriginalLocation

@@ -78,13 +78,6 @@ if ($Help) {
     return
 }
 
-# Function to read from console directly (not from pipeline)
-function Read-ConsoleInput {
-    param([string]$Prompt)
-    Write-Host $Prompt -NoNewline
-    $host.UI.ReadLine()
-}
-
 # Import the mexveil module for core functions
 $ModulePath = Join-Path $PSScriptRoot "mexveil.psm1"
 if (Test-Path $ModulePath) {
@@ -112,7 +105,7 @@ try {
 
     # Get service name if not provided
     if (-not $ServiceName) {
-        $ServiceName = Read-ConsoleInput "Enter the service name: "
+        $ServiceName = Read-Host "Enter the service name"
         if (-not $ServiceName) {
             throw "Service name is required"
         }
@@ -124,7 +117,7 @@ try {
         $ForwardingEmail = Get-CurrentUserEmail
         
         if (-not $ForwardingEmail) {
-            $ForwardingEmail = Read-ConsoleInput "Enter the forwarding email address: "
+            $ForwardingEmail = Read-Host "Enter the forwarding email address"
             if (-not $ForwardingEmail) {
                 throw "Forwarding email is required"
             }
@@ -144,7 +137,7 @@ try {
         if ($Domain) {
             Write-Host "Auto-detected domain: $Domain" -ForegroundColor Green
         } else {
-            $Domain = Read-ConsoleInput "Enter the domain for the shared mailbox: "
+            $Domain = Read-Host "Enter the domain for the shared mailbox"
             if (-not $Domain) {
                 throw "Domain is required"
             }
